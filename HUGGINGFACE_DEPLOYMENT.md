@@ -6,7 +6,7 @@ This guide will help you deploy the Halimi's Lira Counter API to Hugging Face Sp
 
 1. A Hugging Face account (sign up at https://huggingface.co)
 2. Git installed on your computer
-3. The `best.pt` model file
+3. The code is already on GitHub: https://github.com/moiz-q/halimis-lira-counter
 
 ## Step 1: Prepare Files
 
@@ -29,27 +29,57 @@ This guide will help you deploy the Halimi's Lira Counter API to Hugging Face Sp
 
 ## Step 3: Upload Files
 
-### Option A: Using Git (Recommended)
+### Option A: Using Git from GitHub (Recommended)
 
-1. **Clone your space repository:**
+1. **Clone the GitHub repository:**
+   ```bash
+   git clone https://github.com/moiz-q/halimis-lira-counter.git
+   cd halimis-lira-counter
+   ```
+
+2. **Clone your Hugging Face Space repository:**
    ```bash
    git clone https://huggingface.co/spaces/YOUR_USERNAME/halimis-lira-counter
    cd halimis-lira-counter
    ```
 
-2. **Copy all files:**
+3. **Copy files from GitHub repo:**
    ```bash
    # Copy from the huggingface_space directory
-   cp ../huggingface_space/* .
-   cp ../best.pt .
+   cp ../halimis-lira-counter/huggingface_space/* .
+   cp ../halimis-lira-counter/best.pt .
    ```
 
-3. **Commit and push:**
+4. **Commit and push:**
    ```bash
    git add .
-   git commit -m "Initial deployment"
+   git commit -m "Initial deployment from GitHub"
    git push
    ```
+
+### Option A2: Direct Clone from GitHub
+
+Alternatively, you can clone directly from GitHub and copy files:
+
+```bash
+# Clone GitHub repo
+git clone https://github.com/moiz-q/halimis-lira-counter.git
+cd halimis-lira-counter
+
+# Clone HF Space
+cd ..
+git clone https://huggingface.co/spaces/YOUR_USERNAME/halimis-lira-counter
+cd halimis-lira-counter
+
+# Copy files
+cp ../halimis-lira-counter/huggingface_space/* .
+cp ../halimis-lira-counter/best.pt .
+
+# Push to HF
+git add .
+git commit -m "Deploy from GitHub"
+git push
+```
 
 ### Option B: Using Web Interface
 

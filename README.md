@@ -1,10 +1,16 @@
-# Turkish Lira Cash Counter
+# 🇹🇷 Halimi's Lira Counter
 
-This project uses a YOLO11m model to detect Turkish Lira cash denominations in images and calculate the total amount.
+A professional mobile application for detecting and counting Turkish Lira cash bills using YOLO11m deep learning model.
 
-## Classes Detected
+## 📱 Features
 
-The model detects the following Turkish Lira denominations:
+- **Real-time Detection**: Uses YOLO11m model to detect Turkish Lira denominations (5, 10, 20, 50, 100, 200 Lira)
+- **Mobile App**: Beautiful React Native app with Expo
+- **API Server**: Flask REST API for image processing
+- **Global Deployment**: Ready for Hugging Face Spaces deployment
+
+## 🎯 Detected Denominations
+
 - 5 Lira
 - 10 Lira
 - 20 Lira
@@ -12,102 +18,89 @@ The model detects the following Turkish Lira denominations:
 - 100 Lira
 - 200 Lira
 
-## Installation
+## 🚀 Quick Start
 
-1. Install the required dependencies:
-```bash
-pip install -r requirements.txt
-```
+### Local Development
 
-## Usage
+1. **Install Python dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-### Basic Usage
-```bash
-python detect_lira.py --image path/to/your/image.jpg
-```
-
-### With Custom Model Path
-```bash
-python detect_lira.py --model best.pt --image path/to/your/image.jpg
-```
-
-### Save Output Image
-```bash
-python detect_lira.py --image path/to/your/image.jpg --output output.jpg
-```
-
-### Adjust Confidence Threshold
-```bash
-python detect_lira.py --image path/to/your/image.jpg --conf 0.3
-```
-
-## Arguments
-
-- `--image` (required): Path to the input image file
-- `--model`: Path to the YOLO model weights file (default: `best.pt`)
-- `--output`: Path to save the output image with detections (optional)
-- `--conf`: Confidence threshold for detections (default: 0.25)
-
-## Output
-
-The script will:
-1. Display detection results in the console showing:
-   - Number of bills detected for each denomination
-   - Subtotal for each denomination
-   - Total amount in Turkish Lira
-2. Show/display an image with bounding boxes around detected bills
-3. Optionally save the annotated image if `--output` is specified
-
-## Example Output
-
-```
-==================================================
-DETECTION RESULTS
-==================================================
-
-Total bills detected: 5
-
-Breakdown by denomination:
-  10 Lira: 2 bill(s) = 20 Lira
-  20 Lira: 1 bill(s) = 20 Lira
-  50 Lira: 1 bill(s) = 50 Lira
-  100 Lira: 1 bill(s) = 100 Lira
-
-==================================================
-TOTAL AMOUNT: 190 Lira
-==================================================
-```
-
-## Mobile App (React Native/Expo)
-
-This project includes a mobile app built with Expo/React Native that you can run on your phone!
-
-### Quick Start
-
-1. **Start the API Server:**
+2. **Start the API server:**
    ```bash
    python api_server.py
    ```
-   Note: For mobile devices, find your computer's IP address and update `API_URL` in `mobile-app/App.js`
 
-2. **Setup Mobile App:**
+3. **Run the mobile app:**
    ```bash
    cd mobile-app
    npm install
-   npm start
+   npm run start:tunnel
    ```
 
-3. **Run on Your Phone:**
-   - Install [Expo Go](https://expo.dev/client) on your phone
-   - Scan the QR code shown in the terminal
-   - Make sure your phone and computer are on the same WiFi network
+See `QUICK_START.md` for detailed instructions.
 
-See `MOBILE_APP_SETUP.md` for detailed setup instructions.
+## 📂 Project Structure
 
-### Features
-- 📷 Take photos with camera
-- 🖼️ Select images from gallery  
-- 💰 Automatic cash detection
+```
+.
+├── api_server.py          # Flask API server
+├── detect_lira.py         # Standalone detection script
+├── best.pt                # YOLO11m model weights
+├── mobile-app/            # React Native mobile app
+│   ├── App.js            # Main app component
+│   └── package.json      # Dependencies
+├── huggingface_space/     # Files for HF Spaces deployment
+└── requirements.txt       # Python dependencies
+```
+
+## 🌐 Deployment
+
+### Deploy to Hugging Face Spaces
+
+The project is ready for global deployment on Hugging Face Spaces. See `HUGGINGFACE_DEPLOYMENT.md` for complete instructions.
+
+**GitHub Repository**: https://github.com/moiz-q/halimis-lira-counter
+
+## 📱 Mobile App
+
+The mobile app features:
+- 📷 Camera integration for taking photos
+- 🖼️ Gallery picker for selecting images
+- 💰 Automatic cash detection and counting
 - 📊 Detailed breakdown by denomination
-- 🖼️ Annotated image with bounding boxes
+- 🎨 Modern gradient UI design
 
+## 🔧 API Endpoints
+
+- `GET /health` - Health check
+- `POST /detect` - Detect cash in image (expects base64 encoded image)
+
+## 📝 Usage Example
+
+```python
+from detect_lira import detect_and_calculate_cash
+
+results = detect_and_calculate_cash('best.pt', 'image.jpg')
+print(f"Total: {results['total_amount']} Lira")
+```
+
+## 🛠️ Technologies
+
+- **Backend**: Python, Flask, Ultralytics YOLO
+- **Mobile**: React Native, Expo
+- **Model**: YOLO11m
+- **Deployment**: Hugging Face Spaces
+
+## 📄 License
+
+MIT License
+
+## 👤 Author
+
+Halimi's Lira Counter
+
+---
+
+**Note**: Make sure to update the `API_URL` in `mobile-app/App.js` to point to your deployed API server.
