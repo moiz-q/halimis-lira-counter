@@ -19,7 +19,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 // Replace 'localhost' with your computer's IP address
 // Find your IP: Windows (run 'ipconfig'), Mac/Linux (run 'ifconfig')
 // Example: const API_URL = 'http://192.168.1.100:8080';
-const API_URL = 'http://10.110.130.179:8080'; // ⚠️ CHANGE THIS to your computer's IP!
+const API_URL = 'https://moizncai-halimis-lira-counter.hf.space'; // Hugging Face Space URL
 
 export default function App() {
   const [image, setImage] = useState(null);
