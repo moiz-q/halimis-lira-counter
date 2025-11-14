@@ -19,13 +19,9 @@ This guide will help you deploy the Halimi's Lira Counter API to Hugging Face Sp
 
 ## Step 2: Create a Hugging Face Space
 
-1. Go to https://huggingface.co/spaces
-2. Click **"Create new Space"**
-3. Fill in the details:
-   - **Space name**: `halimis-lira-counter` (or your preferred name)
-   - **SDK**: Select **"Docker"**
-   - **Visibility**: Public or Private (your choice)
-4. Click **"Create Space"**
+✅ **Space already created!**
+- **Space URL**: https://huggingface.co/spaces/moizncai/halimis-lira-counter
+- **Username**: moizncai
 
 ## Step 3: Upload Files
 
@@ -39,7 +35,7 @@ This guide will help you deploy the Halimi's Lira Counter API to Hugging Face Sp
 
 2. **Clone your Hugging Face Space repository:**
    ```bash
-   git clone https://huggingface.co/spaces/YOUR_USERNAME/halimis-lira-counter
+   git clone https://huggingface.co/spaces/moizncai/halimis-lira-counter
    cd halimis-lira-counter
    ```
 
@@ -68,7 +64,7 @@ cd halimis-lira-counter
 
 # Clone HF Space
 cd ..
-git clone https://huggingface.co/spaces/YOUR_USERNAME/halimis-lira-counter
+git clone https://huggingface.co/spaces/moizncai/halimis-lira-counter
 cd halimis-lira-counter
 
 # Copy files
@@ -98,20 +94,19 @@ git push
 - Hugging Face will automatically build your Space
 - This can take 5-10 minutes
 - You'll see build logs in the Space page
-- Once built, your API will be live at: `https://YOUR_USERNAME-halimis-lira-counter.hf.space`
+- Once built, your API will be live at: `https://moizncai-halimis-lira-counter.hf.space`
 
 ## Step 5: Update Mobile App
 
 1. Open `mobile-app/App.js`
 2. Update the `API_URL`:
    ```javascript
-   const API_URL = 'https://YOUR_USERNAME-halimis-lira-counter.hf.space';
+   const API_URL = 'https://moizncai-halimis-lira-counter.hf.space';
    ```
-   Replace `YOUR_USERNAME` with your actual Hugging Face username.
 
 3. The API endpoints will be:
-   - Health: `https://YOUR_USERNAME-halimis-lira-counter.hf.space/health`
-   - Detect: `https://YOUR_USERNAME-halimis-lira-counter.hf.space/detect`
+   - Health: `https://moizncai-halimis-lira-counter.hf.space/health`
+   - Detect: `https://moizncai-halimis-lira-counter.hf.space/detect`
 
 ## Step 6: Test the API
 
@@ -119,10 +114,10 @@ You can test the API using curl or Postman:
 
 ```bash
 # Health check
-curl https://YOUR_USERNAME-halimis-lira-counter.hf.space/health
+curl https://moizncai-halimis-lira-counter.hf.space/health
 
 # Detect (you'll need to base64 encode an image)
-curl -X POST https://YOUR_USERNAME-halimis-lira-counter.hf.space/detect \
+curl -X POST https://moizncai-halimis-lira-counter.hf.space/detect \
   -H "Content-Type: application/json" \
   -d '{"image": "base64_encoded_image", "conf": 0.25}'
 ```
